@@ -35,6 +35,10 @@ module.exports = {
                     'babel-loader'
                 ]
             },
+            {
+                test: /\.scss$/,
+                loaders: ["style", "css?sourceMap", "sass?sourceMap"]
+            },
         ]
     },
     resolve: {
