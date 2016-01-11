@@ -5,9 +5,9 @@ import Icon from 'react-fa'
 require('./styles/main.scss');
 
 ReactDOM.render(
-  <div>
-      <h1>Hello, world!</h1>
-      <Icon spin name="spinner" />
-  </div>,
+  <section>
+    <aside>What is it about?</aside>
+    <article>Neat is an open source semantic grid framework built on top of Sass and Bourbon…</article>
+  </section>,
   document.getElementById('app')
 );

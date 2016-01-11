@@ -1,6 +1,9 @@
 var webpack = require('webpack');
 var path = require('path');
 
+var bourbon = require('node-bourbon').includePaths;
+var neat = require('node-neat').includePaths;
+
 module.exports = {
     context: path.join(__dirname, './app'),
     entry: {
@@ -33,7 +36,11 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                loaders: ["style", "css?sourceMap", "sass?sourceMap"]
+                loaders: [
+                    "style",
+                    "css?sourceMap",
+                    "sass?sourceMap"
+                ]
             },
             {
                 test: /\.css$/,
@@ -43,6 +50,12 @@ module.exports = {
                 test: /\.(otf|eot|png|svg|ttf|woff|woff2)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
                 loader: 'url?limit=8192'
             }
+        ]
+    },
+    sassLoader: {
+        includePaths: [
+            require('node-bourbon').includePaths[0],
+            require('node-neat').includePaths[1]
         ]
     },
     resolve: {
