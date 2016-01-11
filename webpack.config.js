@@ -24,10 +24,6 @@ module.exports = {
                 loader:'url-loader?limit=8192&name=images/[name]-[hash].[ext]'
             },
             {
-                test: /\.woff$/,
-                loader: 'url?limit=100000'
-            },
-            {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 loaders: [
@@ -39,6 +35,14 @@ module.exports = {
                 test: /\.scss$/,
                 loaders: ["style", "css?sourceMap", "sass?sourceMap"]
             },
+            {
+                test: /\.css$/,
+                loaders: ['style', 'css']
+            },
+            {
+                test: /\.(otf|eot|png|svg|ttf|woff|woff2)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+                loader: 'url?limit=8192'
+            }
         ]
     },
     resolve: {
