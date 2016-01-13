@@ -1,10 +1,11 @@
 var webpack = require('webpack');
 var path = require('path');
+var rucksack = require('rucksack-css')
 
 module.exports = {
     context: path.join(__dirname, './app'),
     entry: {
-        jsx: './index.jsx',
+        jsx: './scripts/index.jsx',
         html: './index.html',
         vendor: ['react']
     },
@@ -37,7 +38,11 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                loaders: ['style', 'css']
+                loaders: [
+                    'style-loader',
+                    'css-loader?modules&sourceMap&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
+                    'postcss-loader'
+                ]
             },
             {
                 test: /\.(otf|eot|png|svg|ttf|woff|woff2)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
@@ -45,6 +50,11 @@ module.exports = {
             }
         ]
     },
+    postcss: [
+        rucksack({
+            autoprefixer: true
+        })
+    ],
     resolve: {
         extensions: ['', '.js', '.jsx']
     },
