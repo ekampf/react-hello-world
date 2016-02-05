@@ -25,12 +25,14 @@ App.propTypes = {
   actions: PropTypes.object.isRequired
 }
 
+// Which part of the Redux global state does our component want to receive as props?
 function mapStateToProps(state) {
   return {
     todos: state.todos
   }
 }
 
+// Which action creators does it want to receive by props?
 function mapDispatchToProps(dispatch) {
   return {
     actions: bindActionCreators(TodoActions, dispatch)
